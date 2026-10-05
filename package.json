@@ -1,0 +1,17 @@
+{
+  "name": "null-byte-scanner",
+  "version": "0.1.0",
+  "description": "Scans files for null bytes and control characters to detect binary content and encoding corruption.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {}
+}
