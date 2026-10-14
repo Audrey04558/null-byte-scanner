@@ -26,3 +26,10 @@ The trade-off is that the classifier is a heuristic, not a parser. It does not v
 ## The awkward edge
 
 `maxSample` defaults to 8192 (the same threshold git uses). A file whose first 8 KiB is clean text but which contains a NUL at byte 9000 will be reported as text. If you need to be sure, pass `Infinity` as the second argument — but be aware that on a multi-gigabyte file that means reading every byte into memory first; this library does not stream.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
